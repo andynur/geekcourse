@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
+Route::resource('courses', 'CourseController')->only('index', 'show');
+Route::get('my-courses', 'CourseController@showMemberCourse');
