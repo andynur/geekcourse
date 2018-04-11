@@ -35,11 +35,43 @@ class Course extends Model
     }    
 
     /**
-     * Get the creator that owns the course.
+     * Get the author that owns the course.
      */
-    public function creator()
+    public function author()
     {
-        return $this->belongsTo('App\User', 'creator_id');
+        return $this->belongsTo('App\User', 'author_id');
     }
 
+    /**
+     * Get the category that owns the course.
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\User', 'category_id');
+    }     
+
+    /**
+     * Get the video record associated with the course.
+     */
+    public function video()
+    {
+        return $this->hasMany('App\Video');
+    }       
+
+
+    /**
+     * The wishlist that belong to the course.
+     */
+    public function wishlist()
+    {
+        return $this->belongsToMany('App\Wishlist');
+    }  
+    
+    /**
+     * The course_user that belong to the course.
+     */
+    public function course_user()
+    {
+        return $this->belongsToMany('App\CourseUser');
+    }      
 }

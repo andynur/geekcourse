@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card" style="width: 20rem;position: fixed;top: 14em;right: 5em; padding: 3px">
+                <div class="card" style="width: 20rem;position: fixed;top: 12em;right: 5em; padding: 3px">
                     <iframe width="100%" src="https://www.youtube.com/embed/AOIvk4beMcc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>                    
                     <div class="card-body">
                         <h1 class="card-title">$ {{ $course->price }}</h1>

@@ -34,4 +34,21 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Course');
     }     
+            
+    /**
+     * The wishlist that belong to the user.
+     */
+    public function wishlist()
+    {
+        return $this->belongsToMany('App\Wishlist');
+    }
+
+    /**
+     * The course_user that belong to the user.
+     */
+    public function course_user()
+    {
+        return $this->belongsToMany('App\CourseUser');
+    }    
+
 }

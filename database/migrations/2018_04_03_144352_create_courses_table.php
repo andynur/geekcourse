@@ -15,19 +15,20 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 100);
+            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('author_id');
+            $table->string('title', 60); // SEO best title length
+            $table->string('slug', 80);
             $table->text('description');
+            $table->string('thumbnail');
             $table->float('rating');
-            $table->integer('category_id');
-            $table->integer('student_enroll');
-            $table->integer('creator_id');
-            $table->string('language', 30);
-            $table->mediumInteger('price');
-            $table->tinyInteger('discount');
-            $table->text('include');
-            $table->string('thumbnail', 100);
-            $table->string('video', 100);
+            $table->unsignedInteger('student_count');
+            $table->unsignedDecimal('price');
+            $table->unsignedTinyInteger('status');
             $table->timestamps();
+
+            $table->foreign('author_id')->references('id')->on('users');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
